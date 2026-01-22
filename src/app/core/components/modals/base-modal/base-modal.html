@@ -1,0 +1,24 @@
+@if (config) {
+  <div
+    class="modal-overlay"
+    (click)="onOverlayClick()"
+  >
+    <div
+      class="modal-content"
+      [style.width.px]="config.width"
+      (click)="$event.stopPropagation()"
+    >
+      <div class="modal-header">
+        <h3 class="modal-title">
+          {{ config?.title || 'Modal' }}
+        </h3>
+        <app-button
+          (handleBtnClick)="closeModal()"
+        >
+          ×
+        </app-button>
+      </div>
+      <ng-container #modalBody></ng-container>
+    </div>
+  </div>
+}

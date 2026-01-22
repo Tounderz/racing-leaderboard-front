@@ -1,0 +1,50 @@
+<div class="wrapper">
+  <div class="input-search">
+    <app-input
+      [label]="'Поиск'"
+      [value]="searchTerm()"
+      (valueChange)="handleValueSearch($event)"
+    ></app-input>
+  </div>
+  <div class="status-bar">
+    <div>Гонщиков загружено: {{ users()?.length }}</div>
+    <app-live-status
+      [liveMode]="liveMode()"
+      [connectionStatus]="connectionStatus()"
+      [isServerAlive]="isServerAlive()"
+      (toggleLive)="handleToggleLive()"
+    ></app-live-status>
+  </div>
+  @if (users().length) {
+    <cdk-virtual-scroll-viewport
+      #viewport
+      itemSize="50"
+      [minBufferPx]="400"
+      [maxBufferPx]="400"
+      class="list"
+    >
+      <div *cdkVirtualFor="let user of users(); trackBy: trackByFn; let i = index">
+        <div
+          app-leaderboard-racer
+          [user]="user"
+          [isSelected]="selectedUser()?.name === user.name"
+          class="row"
+          (click)="handleSelect(user)"
+        >
+          <div
+            class="position"
+            [class.selected]="selectedUser()?.name === user.name"
+          >
+            {{ i + 1 }}
+          </div>
+        </div>
+      </div>
+      <div #loadTrigger></div>
+    </cdk-virtual-scroll-viewport>
+  }
+  @if (!users().length && searchTerm().length) {
+    <h3 class="empty">
+      По данный критериям поиска ничего не найдено
+    </h3>
+  }
+</div>

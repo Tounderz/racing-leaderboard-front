@@ -1,0 +1,26 @@
+@import "variables";
+
+.toast {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  padding: 12px 24px;
+  border-radius: 4px;
+  color: var(--color-white);
+  font-size: 14px;
+  z-index: $ui-index-5;
+  max-width: 300px;
+  box-shadow: var(--shadow-sm);
+}
+
+.success {
+  background-color: var(--color-success);
+}
+
+.error {
+  background-color: var(--color-danger);
+}
+
+.info {
+  background-color: var(--color-primary);
+}

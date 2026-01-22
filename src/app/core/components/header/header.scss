@@ -1,0 +1,23 @@
+@import "variables";
+
+.container {
+  width: 100%;
+  max-width: 1920px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-inline: auto;
+  padding-inline: 50px;
+}
+
+.project-name {
+  font-size: 20px;
+  font-style: italic;
+  font-weight: 600;
+}
+
+@media #{$ui-mobile} {
+  .container {
+    padding-inline: 10px;
+  }
+}

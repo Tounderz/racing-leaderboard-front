@@ -1,0 +1,26 @@
+@mixin any-hover() {
+  @media (any-hover: hover) {
+    &:hover:not(:disabled):not(.btn-disabled) {
+      @content;
+    }
+  }
+}
+
+@mixin transition($properties: all, $time: .2s, $function: ease-in-out) {
+  @if type-of($properties) == 'list' {
+    $transition-list: ();
+    @each $property in $properties {
+      $transition-list: append($transition-list, #{$property} $time $function, comma);
+    }
+    transition: $transition-list;
+  } @else {
+    transition: $properties $time $function;
+  }
+}
+
+@mixin text-ellipsis($max-width: 350px) {
+  max-width: $max-width;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}

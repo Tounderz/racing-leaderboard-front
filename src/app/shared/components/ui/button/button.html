@@ -1,0 +1,11 @@
+<button
+  type="button"
+  tabindex="-1"
+  [class]="btnClasses()"
+  [disabled]="disabled()"
+  (click)="handleClick()"
+>
+  <div class="btn-text">
+    <ng-content></ng-content>
+  </div>
+</button>

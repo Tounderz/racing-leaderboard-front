@@ -1,0 +1,30 @@
+@import "variables";
+
+.wrapper,
+.form {
+  display: grid;
+  place-content: center;
+  gap: 20px;
+  margin-inline: auto;
+  text-align: center;
+}
+
+.wrapper {
+  max-width: 1920px;
+  height: 100vh;
+  padding: 25px 50px;
+}
+
+.field {
+  width: 250px;
+}
+
+.error {
+  color: var(--color-danger);
+}
+
+@media #{$ui-mobile} {
+  .wrapper {
+    padding: 10px;
+  }
+}

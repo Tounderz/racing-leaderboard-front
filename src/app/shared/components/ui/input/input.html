@@ -1,0 +1,31 @@
+<div class="input-wrapper">
+  @switch (inputType()) {
+    @case ('time') {
+      <input
+        class="input"
+        tabindex="-1"
+        placeholder=" "
+        [class.error]="isErrorValid()"
+        [step]="0.001"
+        [value]="value()"
+        [type]="inputType()"
+        (blur)="handleChange($event)"
+        (input)="handleChange($event)"
+      >
+      <span class="label">{{ label() }}</span>
+    }
+    @default {
+      <input
+        class="input"
+        placeholder=" "
+        tabindex="-1"
+        [class.error]="isErrorValid()"
+        [value]="value()"
+        [type]="inputType()"
+        (blur)="handleChange($event)"
+        (input)="handleChange($event)"
+      >
+      <span class="label">{{ label() }}</span>
+    }
+  }
+</div>

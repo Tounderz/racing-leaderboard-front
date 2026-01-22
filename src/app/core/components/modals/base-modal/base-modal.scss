@@ -1,0 +1,37 @@
+@import "variables";
+@import "mixins";
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  z-index: $ui-index-3;
+  @include transition((opacity, visibility));
+}
+
+.modal-overlay:not([style*="visibility: hidden"]) {
+  opacity: 1;
+  visibility: visible;
+}
+
+.modal-content {
+  width: 350px;
+  display: grid;
+  padding: 10px;
+  background-color: var(--color-white);
+  border: 1px solid var(--color-blue);
+  border-radius: var(--border-radius-default);
+  box-shadow: var(--shadow-md);
+}
+
+.modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-block-end: 15px;
+}

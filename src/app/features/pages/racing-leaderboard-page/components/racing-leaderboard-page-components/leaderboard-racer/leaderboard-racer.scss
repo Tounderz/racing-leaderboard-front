@@ -1,0 +1,46 @@
+@import "mixins";
+@import "variables";
+
+.helmet {
+  width: 50px;
+  height: 50px;
+  display: grid;
+  place-content: center;
+  border: 1px solid var(--color-transparent);
+  border-radius: var(--border-radius-circle);
+  @include transition(border-color);
+
+  &.selected {
+    border-color: var(--color-selected);
+  }
+}
+
+.infos {
+  display: grid;
+  gap: 5px;
+}
+
+.info {
+  display: flex;
+  gap: 5px;
+}
+
+.time {
+  color: var(--color-selected);
+}
+
+.separator {
+  width: 1px;
+  height: 100%;
+  background-color: var(--color-dark-blue);
+}
+
+.speed {
+  color: var(--color-dark-blue);
+}
+
+@media #{$ui-mobile} {
+  .name {
+    @include text-ellipsis;
+  }
+}

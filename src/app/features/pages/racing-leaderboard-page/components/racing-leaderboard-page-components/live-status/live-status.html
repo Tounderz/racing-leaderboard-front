@@ -1,0 +1,14 @@
+<div class="status-group">
+  <div
+    class="live-status"
+    [class]="statusClass()"
+  >
+    {{ statusText() }}
+  </div>
+  <app-button
+    [disabled]="connectionStatus() === 'connecting'"
+    (handleBtnClick)="handleToggleLive()"
+  >
+    {{ buttonText() }}
+  </app-button>
+</div>

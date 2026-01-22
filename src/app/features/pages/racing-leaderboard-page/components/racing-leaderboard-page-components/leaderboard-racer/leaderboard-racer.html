@@ -1,0 +1,23 @@
+@if (user()) {
+  <ng-content></ng-content>
+  <div
+    class="helmet"
+    app-helmet
+    [class.selected]="isSelected()"
+    [color]="getColor(user()?.color)"
+  ></div>
+  <div class="infos">
+    <div class="name">
+      {{ user()?.name }}
+    </div>
+    <div class="info">
+      <div class="time">
+        {{ user()?.time | msToTime }}
+      </div>
+      <div class="separator"></div>
+      <div class="speed">
+        {{ user()?.speed | number:'1.0-1' }} км/ч
+      </div>
+    </div>
+  </div>
+}
